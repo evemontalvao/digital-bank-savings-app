@@ -10,12 +10,6 @@ module.exports = {
     path: path.resolve('dist'),
     filename: 'main.js'
   },
-  watch: true,
-    resolve: { extensions: [".js"] },
-    devServer: {
-        contentBase: path.join(__dirname, "./dist/"),
-        port: 9001
-  },
   module: {
     rules: [
       {

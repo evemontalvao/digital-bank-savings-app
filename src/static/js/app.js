@@ -1,3 +1,4 @@
+import '../css/index.css'
 import increaser from './components/increaser'
 import slider from './components/slider'
 import result from './components/result'
