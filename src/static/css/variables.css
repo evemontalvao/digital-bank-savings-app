@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap');
+
+:root {
+  --color-brand-primary: rgb(138, 5, 190);
+  --color-text-primary: rgb(118, 118, 118);
+  --color-text-highlight: rgb(0, 0, 0);
+  --color-interface-light: rgb(255, 255, 255);
+  --color-interface-medium: rgb(245, 245, 245);
+  --color-interface-hover: rgba(138, 5, 190, 0.05);
+
+  --font-default: 'Roboto', sans-serif;
+
+  --size-font-input: 20px;
+  --size-font-small: 14px;
+  --size-font-medium: 18px;
+  --size-font-large: 32px;
+}

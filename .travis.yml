@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+  - "10"
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+
+cache:
+  directories:
+  - node_modules
+  - ~/.cache
+
+install:
+  - npm install
+
+script:
+  - npm run build
+
+deploy:
+  provider: s3
+  access_key_id:
+    secure: "tPk7DXfXHlvvfRC+i50Iy6WpikK/HpjCuU+rTjUE0mHinvo/ikmKq0znBrqCaSdp/P7DjryPhjBkTVIv9IsT2ez0j7MUIU+AJpgwu4oqHeg3lLsNWwPMjLuUDRtkJ+w1WD8XTXT/+SkO9hersfn3fThqP7NED05bjQlTSQxCwMi8ncxFRExzonhgUU5YqOTUXt3R8QJeY1UtWUSHwebtd50dKpAwr8ReuVGdR3ZAPbMvctLyG336aMYAoNsnFFJGqgjQwf0G0kkOr1naUGz/3937vrzjv+SZx5EK47FcTe1vMuEfRJfqfLyzPGaRSUmb4YDhwMFyUGaOgJXKZ0Ee1/y2SjZ8PwOMpwL4/XkoIyJnBuNes3o/locXKV23KFoguKaXj5tisBxLTCQb8Cl8Mb3a8sbeCVVSpM8wondwBpd4/Ye5HcwqZPzg8L6JBUpvTQ8GxmFmwf5AEGDaecUgQ71TQPNGloVNZt1l24A8SqSmarBqHGb3Rl/Hl2iwplb4qSum6W9XKdLarSCdz/iWsN8b4Jtnd/ausnWPV6Muq+qAENAr88vgjrbvtQSsVVsi5Mx95y0pSFbGFgkwtHherdj3ikFfk+PghLxCKPDr/b5dABrrUxKmMN5KZ9JL7ylEMiUKqnnv0PX8pzkvYz3p+IwpsD+hRtVwrL5Pg3QmdQc="
+  secret_access_key:
+    secure: "wotPECOoWmhdMbFozfiiAIPvR/19JhUKaJoECcrF9l5GtGRn44vksnpxbvYA9QuHqme3MQRZDp1A6cnrWHkm0HAqKZcvmxUzA6IujFlvQANHlM8uzLlFIf3wiHPNShAQUkqwFWO4q/q/GcBcFoDmOt5YShxVKx/VgWxmu4LNCEi2mWPwrdYjF/zVLGUA35g2yPn8sItbN9UsOQ591R5g/QyFia3sk/z7S4X5BWRaPPzBHDfQnJTXAS32hJjNP7waPxO0nteJmaVBL+QP6RKnD0a+jGAX8xXJ6Elwu08ZjpnZyjB5T2ljYhM1N8HQLtaiysiWWDNLjr9OK9lwQL/IhrhX3GlTLrp3yEtIPEuNicd1P2DPMJaO6fFnQwDW1weiau+l3sUe9VAtpUa35AJ6Q4BNe+sydFZxAo9gfZh5tgNgrHe3oq+I/r1u33/JiKbVIqy8INMTCYeQW8IFEmClCV4vwMLMrvYGPJZPDpTdMfpir4tLeP8SZYsUbyth3drbSmnANxWTiDE2sdqbt8dw2J9D5hZJNjRjqZbSQI7LhCnCqjTI+/WBWz2awqXFpT1hDLzYthJlID3tMM9V0e40fx7ztssEv7q8gaEQ472JYRSc/2XFnhsnCy6IYgiP+h+bkEgn21ozQ97+K/8tJWhM0i5BUJMAk2/Gdog79IQGqL8="
+  bucket: "nubank-challenge"
+  skip_cleanup: true
+  region: sa-east-1
+  local_dir: dist/
+  acl: public_read
+branches:
+  only:
+  - master

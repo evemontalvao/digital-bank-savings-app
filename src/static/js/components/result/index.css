@@ -1,0 +1,38 @@
+.results__card {
+  background-color: var(--color-interface-light);
+  box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 2px;
+  font-weight: 300;
+  padding: 100px 36px 36px;
+  position: relative;
+  width: 100%;
+}
+
+.results__amount {
+  color: var(--color-brand-primary);
+  font-size: var(--size-font-large);
+  line-height: 1.8;
+}
+
+.results__label {
+  color: var(--color-text-primary);
+  font-size: var(--size-font-small);
+  line-height: 1.8;
+}
+
+.results__text {
+  margin-top: 36px;
+}
+
+.results__icon {
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  right: 0;
+  top: -60px;
+  width: 120px;
+}
+
+.results__icon img {
+  width: 100%;
+}
