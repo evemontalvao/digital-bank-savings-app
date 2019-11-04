@@ -1,6 +1,5 @@
 import './index.css'
 import Component from "../../../../utils/component-handler"
-import './index.css'
 import { subscribe } from '../../../../utils/pubsub'
 import { debounced } from '../../../../utils/event-handler'
 import fetchApi from '../../../../utils/fetch'
