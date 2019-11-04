@@ -1,0 +1,23 @@
+{
+  "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+  },
+  "env": {
+      "es6": true,
+  },
+  "plugins": [
+    "cypress",
+    "transform-es2015-modules-commonjs"
+  ],
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 7"]
+        }
+      }
+    ]
+  ]
+}

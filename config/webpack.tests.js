@@ -3,11 +3,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve('dist'),
     filename: 'bundle.js'
+  },
+  watch: true,
+  resolve: { extensions: ['.js'] },
+  devServer: {
+    contentBase: path.join(__dirname, './dist/'),
+    port: 9001
   },
   module: {
     rules: [
@@ -16,7 +22,7 @@ module.exports = {
         use: [{
           loader: 'html-loader',
           options: {
-            minimize: true,
+            minimize: false,
             attrs: ['img:src']
           }
         }]
@@ -28,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|jpe?g|gif)$/,

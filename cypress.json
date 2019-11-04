@@ -1,0 +1,12 @@
+{
+  "baseUrl": "http://localhost:9001",
+  "integrationFolder": "test/e2e",
+  "fixturesFolder": false,
+  "projectId": "rzozvq",
+  "screenshotsFolder": "test/screenshots",
+  "testFiles": "**/*.spec.js",
+  "video": false,
+  "videosFolder": "test/cypress/videos",
+  "viewportHeight": 768,
+  "viewportWidth": 1280
+}

@@ -10,10 +10,14 @@
 
 .slider__input::-webkit-slider-thumb {
   -webkit-appearance: none !important;
-  background: var(--color-brand-primary);;
+  background: var(--color-brand-primary);
   height: 15px;
   width: 15px;
   cursor: pointer;
   -moz-border-radius: 10px;
   border-radius: 10px;
+}
+
+.slider__fieldset {
+  position: relative;
 }

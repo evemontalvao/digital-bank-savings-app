@@ -5,13 +5,33 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config './config/webpack.prod.js'",
-    "start": "webpack-dev-server --config './config/webpack.dev.js'"
+    "start": "webpack-dev-server --config './config/webpack.dev.js'",
+    "start:tests": "webpack-dev-server --config './config/webpack.tests.js'",
+    "test:coverage": "jest --coverage"
   },
   "jest": {
     "verbose": true,
     "transform": {
       "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css)$": "<rootDir>/test/__mocks__/styleMock.js"
     }
+  },
+  "standard": {
+    "env": [
+      "commonjs",
+      "node",
+      "jest",
+      "cypress/globals"
+    ],
+    "globals": [
+      "cy",
+      "Cypress",
+      "expect",
+      "assert",
+      "describe"
+    ]
   },
   "license": "ISC",
   "devDependencies": {
@@ -22,15 +42,20 @@
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
+    "cypress": "^3.6.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-cypress": "^2.7.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "jest-cli": "^24.9.0",
     "mini-css-extract-plugin": "^0.8.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
+    "standard": "^14.3.1",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",

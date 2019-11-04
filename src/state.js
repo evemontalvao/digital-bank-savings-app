@@ -1,6 +1,7 @@
 module.exports = {
   title: 'First deposit',
   'initial-amount': 1000,
+  'view-amount': '1.000',
   controls: {
     add: '+',
     sub: '-'
@@ -11,5 +12,5 @@ module.exports = {
   step: 6,
   gross: 1061.68,
   amount: 1049.34,
-  interest: 0.5,
+  interest: 0.5
 }

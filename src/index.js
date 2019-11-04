@@ -2,6 +2,7 @@ import './static/css/index.css'
 import app from './static/js/app'
 import { publish, subscribe } from './utils/pubsub'
 import initialState from './state'
+import DOMReady from './utils/dom-ready'
 
 const renderDOM = (state = {}) => {
   const parent = document.getElementById('app')
@@ -11,10 +12,7 @@ const renderDOM = (state = {}) => {
   publish('component:mount')
 }
 
-document.addEventListener('readystatechange', (event) => {
-  if (document.readyState !== 'loading') {
-    renderDOM(initialState)
-
-    subscribe('state:change', renderDOM.bind(renderDOM, initialState))
-  }
+DOMReady(initialState, (state) => {
+  renderDOM(state)
+  subscribe('state:change', renderDOM)
 })

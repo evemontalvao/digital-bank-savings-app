@@ -27,7 +27,8 @@
 .increase-field__input {
   background-color: transparent;
   font-size: var(--size-font-input);
-  width: 60px;
+  width: 120px;
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {

@@ -1,6 +1,5 @@
 const subscribers = {}
 
-
 const subscribe = (event, callback) => {
   if (!subscribers[event]) {
     subscribers[event] = []
@@ -15,13 +14,13 @@ const subscribe = (event, callback) => {
 }
 
 const publish = (event, data) => {
-  if (!subscribers[event]) return;
+  if (!subscribers[event]) return null
 
   subscribers[event].forEach(callback => callback(data))
 }
 
-module.exports = {
-  subscribers,
+export {
+  subscribe,
   publish,
-  subscribe
+  subscribers
 }

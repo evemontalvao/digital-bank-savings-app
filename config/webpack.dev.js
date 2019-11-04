@@ -1,20 +1,19 @@
 const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve('public'),
     filename: 'bundle.js'
   },
   watch: true,
-    resolve: { extensions: [".js"] },
-    devServer: {
-        contentBase: path.join(__dirname, "./public/"),
-        port: 9001
+  resolve: { extensions: ['.js'] },
+  devServer: {
+    contentBase: path.join(__dirname, './public/'),
+    port: 9001
   },
   module: {
     rules: [
@@ -34,8 +33,8 @@ module.exports = {
         use: ['babel-loader']
       },
       {
-        test:/\.css$/,
-        use:['style-loader','css-loader']
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|jpe?g|gif)$/,
@@ -58,8 +57,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       {
-        from:'./src/static/images',
-        to:'static/images'
+        from: './src/static/images',
+        to: 'static/images'
       },
       {
         from: './src/index.html',

@@ -1,26 +1,24 @@
-function debounced(delay, fn) {
-  let timerId;
+function debounced (delay, fn) {
+  let timerId
+
   return function (...args) {
     if (timerId) {
-      clearTimeout(timerId);
+      clearTimeout(timerId)
     }
     timerId = setTimeout(() => {
-      fn(...args);
-      timerId = null;
-    }, delay);
+      fn(...args)
+      timerId = null
+    }, delay)
   }
 }
 
-function throttled(delay, fn) {
-  let lastCall = 0;
-
+function throttled (wait, fn) {
+  let time = Date.now()
   return function (...args) {
-    const now = (new Date).getTime();
-    if (now - lastCall < delay) {
-      return;
+    if ((time + wait - Date.now()) < 0) {
+      fn(...args)
+      time = Date.now()
     }
-    lastCall = now;
-    return fn(...args);
   }
 }
 

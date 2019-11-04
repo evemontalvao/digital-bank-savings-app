@@ -1,22 +1,16 @@
 import './index.css'
-import Component from "../../../../utils/component-handler"
-import { subscribe } from '../../../../utils/pubsub'
+import Component from '../../../../utils/component-handler'
 import { debounced } from '../../../../utils/event-handler'
 import fetchApi from '../../../../utils/fetch'
 
-export default new class Slider extends Component {
-  constructor() {
-    super()
+class Slider extends Component {
+  onMount () {
+    const $input = document.querySelector('[data-slider-input]')
+
+    $input.addEventListener('change', debounced(300, this.handleSliderChange.bind(this)))
   }
 
-  onMount() {
-    const $slider = document.querySelector('.slider')
-    const $input = document.querySelector('.slider__input')
-
-    $input.addEventListener('input', debounced(300, this.handleSliderChange.bind(this)))
-  }
-
-  async handleSliderChange(event) {
+  async handleSliderChange (event) {
     const value = event.target.value
 
     this.setState({
@@ -29,15 +23,17 @@ export default new class Slider extends Component {
     this.setState({ ...result, amount })
   }
 
-  render(state) {
+  render (state) {
     this.state = state
     return `
-      <div class="slider">
-        <div class="slider__fieldset">
-          <label class="slider__label" for="">For <strong>${this.state.period} months</strong></label>
-          <input class="slider__input" type="range" min="${this.state.startPeriodRange}" max="${this.state.endPeriodRange}" value="${this.state.period}" step="${this.state.step}" />
+      <div class="slider" data-slider>
+        <div class="slider__fieldset" data-slider-fieldset>
+          <label class="slider__label" for="" data-slider-label>For <strong>${this.state.period} months</strong></label>
+          <input data-slider-input class="slider__input" type="range" min="${this.state.startPeriodRange}" max="${this.state.endPeriodRange}" value="${this.state.period}" step="${this.state.step}" />
         </div>
       </div>
     `
   }
 }
+
+export default new Slider()

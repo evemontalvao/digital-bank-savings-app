@@ -1,10 +1,12 @@
-const { subscribe, publish, subscribers } = require('./pubsub')
+/* eslint-env jest */
+
+import { subscribe, publish, subscribers } from '../../src/utils/pubsub'
 
 describe('PubSub\'s ', () => {
   describe('subscribe should', () => {
     test('subscribe for given event including it\'s name and callback to subscribers array', () => {
       const callback = jest.fn()
-      const event = subscribe('name:event', callback)
+      subscribe('name:event', callback)
 
       expect(subscribers).toEqual({
         'name:event': [callback]
@@ -33,6 +35,10 @@ describe('PubSub\'s ', () => {
 
       expect(fn1).toHaveBeenCalled()
       expect(fn2).toHaveBeenCalled()
+    })
+
+    test('return when event does not exist on list', () => {
+      expect(publish('name:nonexistent')).toBe(null)
     })
   })
 })

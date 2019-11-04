@@ -1,18 +1,20 @@
 import '../css/index.css'
-import increaser from './components/increaser'
-import slider from './components/slider'
-import result from './components/result'
+import Increaser from './components/increaser'
+import Slider from './components/slider'
+import Result from './components/result'
 
-export default new class App {
-  render(state) {
+class App {
+  render (state) {
     return `
       <section class="column">
-        ${increaser.render(state)}
-        ${slider.render(state)}
+        ${Increaser.render(state)}
+        ${Slider.render(state)}
       </section>
       <section class="column">
-        ${result.render(state)}
+        ${Result.render(state)}
       </section>
     `
   }
 }
+
+export default new App()
