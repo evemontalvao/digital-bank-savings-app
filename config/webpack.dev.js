@@ -2,19 +2,18 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: './src/index.js',
   output: {
-    path: path.resolve('dist'),
-    filename: 'main.js'
+    path: path.resolve('public'),
+    filename: 'bundle.js'
   },
   watch: true,
     resolve: { extensions: [".js"] },
     devServer: {
-        contentBase: path.join(__dirname, "./dist/"),
+        contentBase: path.join(__dirname, "./public/"),
         port: 9001
   },
   module: {
@@ -24,7 +23,7 @@ module.exports = {
         use: [{
           loader: 'html-loader',
           options: {
-            minimize: true,
+            minimize: false,
             attrs: ['img:src']
           }
         }]
