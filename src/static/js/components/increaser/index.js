@@ -49,7 +49,7 @@ class Increaser extends Component {
     this.setState({ ...result, amount })
   }
 
-  async handleButtonClick (event) {
+  handleButtonClick (event) {
     const type = event.target.attributes['data-increase-control'].value
     const value = this.state['initial-amount']
 

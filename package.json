@@ -16,7 +16,12 @@
     },
     "moduleNameMapper": {
       "\\.(css)$": "<rootDir>/test/__mocks__/styleMock.js"
-    }
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/cypress/",
+      "/test/e2e/"
+    ]
   },
   "standard": {
     "env": [
