@@ -38,14 +38,6 @@ describe('NuConta Savings application should', () => {
     cy.get('[data-increase-input]').should('have.value', 'R$ 100')
   })
 
-  it('should not decrease to non-positive values', () => {
-    for (let n = 0; n < 50; n++) {
-      cy.get('[data-increase-control="sub"]').click()
-    }
-
-    cy.get('[data-increase-input]').should('have.value', 'R$ 0')
-  })
-
   it('should not accept anything but nubers', () => {
     cy.get('[data-increase-input]').clear().type('imnotanumber')
 
