@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config './config/webpack.prod.js'",
-    "start": "webpack-dev-server --config './config/webpack.dev.js'",
+    "build": "NODE_ENV=production webpack --config './config/webpack.prod.js'",
+    "start": "NODE_ENV=development webpack-dev-server --config './config/webpack.dev.js'",
     "start:tests": "webpack-dev-server --config './config/webpack.tests.js'",
     "test:coverage": "jest --coverage"
   },

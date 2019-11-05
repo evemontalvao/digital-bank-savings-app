@@ -1,4 +1,5 @@
 /* global fetch */
+import config from '../../config/index'
 
 const fetchSavings = async (state) => {
   const data = {
@@ -13,7 +14,7 @@ const fetchSavings = async (state) => {
     body: JSON.stringify(data)
   }
 
-  const result = await fetch('http://localhost:2107/savings', options)
+  const result = await fetch(`${config.HOST}${config.ENDPOINT}`, options)
   return result.json()
 }
 

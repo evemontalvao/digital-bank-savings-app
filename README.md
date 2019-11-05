@@ -19,6 +19,10 @@ You can see this project in production by pasting the below url into your favori
 3. This will build up a server on port 9001, so you only have to paste this into your favorite browser
   - `http://localhost:9000`
 
+4. You must have serverless running on port `:2107`
+
+**The instructions to run the serverless API are on `../api/README.md`**
+
 
 ## Testing
 
