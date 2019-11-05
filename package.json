@@ -4,9 +4,12 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production webpack --config './config/webpack.prod.js'",
-    "start": "NODE_ENV=development webpack-dev-server --config './config/webpack.dev.js'",
-    "start:tests": "webpack-dev-server --config './config/webpack.tests.js'",
+    "build": "webpack --config './config/webpack.prod.js'",
+    "start": "webpack-dev-server --config './config/webpack.dev.js'",
+    "test:server": "webpack-dev-server --config './config/webpack.dev.js'",
+    "test:cypress": "start-server-and-test test:server http://localhost:9001 cypress:run",
+    "cypress:run": "cypress run --spec \"./test/e2e/**/*.spec.js\" --browser chrome",
+    "test:unit": "jest",
     "test:coverage": "jest --coverage"
   },
   "jest": {
@@ -61,6 +64,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "standard": "^14.3.1",
+    "start-server-and-test": "^1.10.6",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
