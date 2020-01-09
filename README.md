@@ -1,6 +1,6 @@
-# NuConta Savings
+# Digital Bank Savings
 
-This is the front-end part from my NuConta Savings application. I chose to use a react-like approach, but using vanilla JS, where every component has it's own responsabilities and share state between each other.
+This is the front-end part from my Digital Bank Savings application. I chose to use a react-like approach, but using vanilla JS, where every component has it's own responsabilities and share state between each other.
 Thinking about escalability, mantainability and mainly reuse, I chose to keep all the business logic apart in a serverless API, so all possible applications could consume from only one source.
 
 ## Production
